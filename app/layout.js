@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 const baloo = Baloo_2({
-  variable: "--font-baloo", // tu déclares la variable CSS
+  variable: "--font-baloo", 
   subsets: ["latin"],
-  weight: ["400", "700"], // choisis les graisses que tu veux
+  weight: ["400", "700"],
 });
 
 export const metadata = {
