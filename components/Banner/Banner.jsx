@@ -14,7 +14,7 @@ export default function Banner() {
         priority
       />
       <div className={styles.overlay}>
-        <h1>Toiture <span className={styles.span}> Marseille </span></h1>
+        <h1 className={styles.h1}>Toiture <span className={styles.span}> Marseille </span></h1>
         <p>Votre spécialiste en toiture à Marseille</p>   
       </div>
        <Image
