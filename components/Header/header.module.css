@@ -8,9 +8,10 @@
     font-weight: bold;
     color: rgb(82,113,255);
     background-color: white;
-    position: relative; 
+    position: fixed; 
     border-bottom: 1px solid black;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .buttonBox {
@@ -75,11 +76,11 @@
 }
 
 .menu {
-    position: absolute;
+    position: fixed;
     right: 0;
     z-index: 20;
     top: 15vh;
-    height: 420px;
+    height: 85vh;
     width: 100%;
     list-style: none;
     background-color: #ffffff;
