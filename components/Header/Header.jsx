@@ -16,6 +16,7 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Accueil' },
     { href: '/pictures', label: 'Photos' },
+    { href: '/isolation', label: 'Isolation' },
     { href: '/zinguerie', label: 'Zinguerie' },
     { href: '/couverture', label: 'Couverture' },
     { href: '/demoussage', label: 'Nettoyage de toiture' },
