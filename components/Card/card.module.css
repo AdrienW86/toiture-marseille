@@ -48,7 +48,7 @@
 
 .link {
   margin-top: 12px;
-  color: #2563eb;
+  color: var(--primary);
   font-weight: 500;
 }
 
