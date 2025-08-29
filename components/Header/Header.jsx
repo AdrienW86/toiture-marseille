@@ -17,7 +17,7 @@ export default function Header() {
     { href: '/isolation', label: 'Isolation' },
     { href: '/zinguerie', label: 'Zinguerie' },
     { href: '/couverture', label: 'Couverture' },
-    { href: '/demoussage', label: 'Nettoyage de toiture' },
+    { href: '/nettoyage', label: 'Nettoyage de toiture' },
     { href: '/savoir-faire', label: 'Qui sommes-nous ?' },
     { href: '/contact', label: 'Contact' },
   ];

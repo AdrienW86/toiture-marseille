@@ -7,11 +7,7 @@ export default function Home() {
     <div>
         <Banner src = "/image1.png" />
         <Intro />
-        <Description />
-      <main>
-      
-      </main>
-      
+        <Description />      
     </div>
   );
 }
