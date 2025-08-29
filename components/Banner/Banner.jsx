@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import styles from './banner.module.css';
 
-export default function Banner() {
+export default function Banner(props) {
   return (
     <div className={styles.banner}>
       <Image
-        src="/image1.png" 
+        src= {props.src} 
         alt="Toiture Marseille"
         fill
         style={{ objectFit: 'cover' }} 

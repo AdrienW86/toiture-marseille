@@ -31,8 +31,6 @@ const services = [
   },
 ]
 
-
-
   return (
     <section className={styles.description}>
       <h2 className={styles.h2}> Nos services </h2>
