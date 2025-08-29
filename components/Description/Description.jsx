@@ -9,25 +9,25 @@ const services = [
     title: "Rénovation de toiture",
     description: "Redonnez une seconde vie à votre toit grâce à nos experts en rénovation.",
     image: "/image2.png",
-    link: "/services/renovation",
+    link: "/couverture",
   },
   {
     title: "Isolation thermique",
     description: "Améliorez le confort de votre habitation avec une isolation performante.",
     image: "/image4.png",
-    link: "/services/isolation",
+    link: "/isolation",
   },
   {
     title: "Entretien & nettoyage",
     description: "Préservez l’étanchéité et la longévité de votre toit avec un entretien régulier.",
     image: "/image3.png",
-    link: "/services/entretien",
+    link: "/nettoyage",
   },
   {
     title: "Travaux de zinguerie",
     description: "Assurez l’évacuation optimale des eaux pluviales et la protection de votre toiture grâce à nos prestations de zinguerie.",
     image: "/image5.png", 
-    link: "/services/zinguerie",
+    link: "/zinguerie",
   },
 ]
 
