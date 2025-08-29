@@ -1,19 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import { Baloo_2 } from "next/font/google"; // <-- import Baloo
-
+import { Baloo_2 } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const baloo = Baloo_2({
   variable: "--font-baloo", 
@@ -24,12 +12,15 @@ const baloo = Baloo_2({
 export const metadata = {
   title: "Toiture Marseille",
   description: "Votre expert de la toiture à Marseille",
+   icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${baloo.variable}`}>
+      <body className={`${baloo.variable}`}>
         <Header />
         {children}
         <Footer />

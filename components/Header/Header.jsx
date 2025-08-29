@@ -11,8 +11,6 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
-
   const navLinks = [
     { href: '/', label: 'Accueil' },
     { href: '/pictures', label: 'Photos' },

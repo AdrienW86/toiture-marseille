@@ -78,14 +78,17 @@
 
 .menu {
     position: fixed;
-    right: 0;
-    z-index: 20;
     top: 15vh;
-    height: 85vh;
+    left: 50%;                 /* positionne le milieu de l’élément au milieu de l’écran */
+    transform: translateX(-50%); /* décale l’élément pour le centrer parfaitement */
+    z-index: 20;
+    height: 480px;
     width: 100%;
+    max-width: calc(800px - 2px);
     list-style: none;
     background-color: #ffffff;
 }
+
 
 .ul {
     list-style: none;
