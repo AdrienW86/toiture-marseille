@@ -10,11 +10,11 @@ export default function Gallery() {
     { src: '/image3.png', alt: 'Image 3' },
     { src: '/image4.png', alt: 'Image 4' },
     { src: '/image5.png', alt: 'Image 5' },
-    { src: '/image6.png', alt: 'Image 1' },
-    { src: '/image7.png', alt: 'Image 2' },
-    { src: '/image8.png', alt: 'Image 3' },
-    { src: '/image9.png', alt: 'Image 4' },
-    { src: '/image10.png', alt: 'Image 5' },
+    { src: '/nettoyage2.png', alt: 'Image 1' },
+    { src: '/zinguerie1.png', alt: 'Image 2' },
+    { src: '/zinguerie3.png', alt: 'Image 3' },
+    { src: '/couverture4.png', alt: 'Image 4' },
+    { src: '/couverture1.png', alt: 'Image 5' },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
