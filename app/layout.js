@@ -1,7 +1,7 @@
 import { Baloo_2 } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import Script from "next/script"; // ✅ Import Script
+import Script from "next/script"; 
 import "./globals.css";
 
 const baloo = Baloo_2({
