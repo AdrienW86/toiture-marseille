@@ -36,7 +36,7 @@ export default function Header() {
           sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />        
       </Link>
-      <a href="tel:+33757516414" className={styles.callButton}>
+      <a href="tel:+33608008683" className={styles.callButton}>
         📞 Appeler
       </a>
       <div className={styles.buttonBox}>
