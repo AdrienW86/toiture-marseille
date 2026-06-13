@@ -27,7 +27,7 @@ export default function Header() {
       
       {/* LOGO INJECTÉ EN SVG DIRECT */}
       <Link href="/" className="flex items-center transition-transform duration-200 hover:scale-105">       
-        <Logo width={150} height={150} className="w-[150px] h-[150px]" />        
+        <Logo width={140} height={140} className="w-[140px] h-[140px]" />        
       </Link>
 
       {/* MENU DESKTOP (Au survol : passage au bleu ciel) */}
