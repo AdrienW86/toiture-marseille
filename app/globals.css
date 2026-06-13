@@ -1,39 +1,24 @@
-:root {
-  --primary: #00d5eb;
-  --font-baloo: "Baloo", cursive;
-}
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
+@theme {
+  /* Palette OM */
+  --color-om-light: #38bdf8;
+  --color-om-dark: #38bdf8;
   
+  /* Variables globales */
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-html,
+/* On applique les couleurs via les variables CSS au niveau racine */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Utilisation des variables CSS au lieu de @apply dans @layer base pour Tailwind v4 */
 body {
-  max-width: 800px;
-  margin: auto;
-  overflow-x: hidden;
-  background-color: rgb(255, 255, 255);
-}
-
-body {
-  font-weight: bold;
-  font-family: var(--font-baloo);
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media screen and (min-width: 800px) {
-  body {
-   border-left: 1px solid black;
-   border-right: 1px solid black;
-  }
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: sans-serif;
 }
