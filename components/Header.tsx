@@ -4,11 +4,27 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Logo from '@/components/Logo'; // On importe le nouveau composant SVG transparent
 
+// Typage pour éviter les erreurs TypeScript avec window.gtag
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Fonction de suivi des conversions Google Ads au clic sur le bouton d'appel
+  const handlePhoneClick = () => {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18366446985/yGpHCMjW0docEIn75rVE',
+      });
+    }
   };
 
   const navLinks = [
@@ -51,6 +67,7 @@ export default function Header() {
         {/* Bouton d'appel d'urgence aux couleurs de l'OM */}
         <a 
           href="tel:+33608008683" 
+          onClick={handlePhoneClick}
           className="bg-sky-400 hover:bg-sky-500 text-slate-950 font-bold px-4 py-2.5 rounded-xl shadow-md shadow-sky-500/10 flex items-center gap-2 text-sm sm:text-base transition-all duration-150"
         >
           <span className="animate-pulse">📞</span> 
@@ -85,6 +102,15 @@ export default function Header() {
               </Link>
             </li>
           ))}
+          <li className="pt-2">
+            <a 
+              href="tel:+33608008683" 
+              onClick={() => { handlePhoneClick(); toggleMenu(); }}
+              className="block w-full text-center bg-sky-400 hover:bg-sky-500 text-slate-950 font-bold py-3 rounded-xl transition-all duration-150"
+            >
+              📞 06 08 00 86 83
+            </a>
+          </li>
         </ul>
       </div>
 
