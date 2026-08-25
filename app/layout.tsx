@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Baloo_2 } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Breadcrumbs from "@/components/Breadcrumbs"; // Importation du fil d'Ariane
 import Footer from "@/components/Footer";
@@ -41,6 +42,20 @@ export default function RootLayout({
       lang="fr" 
       className={`${baloo.variable} h-full antialiased scroll-smooth`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18366446985"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-gtag-marseille" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18366446985');
+          `}
+        </Script>
+      </head>
       <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900">
         
         {/* Barre de navigation fixe */}
