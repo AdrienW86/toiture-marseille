@@ -12,36 +12,40 @@ interface ContactFormData {
 
 export default function Form() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isSended, setIsSended] = useState<boolean>(false);
+  const [isSent, setIsSent] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
  
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
 
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
-    if (!isLoading) {
-      setIsLoading(true);
-      setErrorMessage(null);
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+    if (isLoading) return;
 
-        setIsLoading(false);
+    setIsLoading(true);
+    setErrorMessage(null);
 
-        if (!response.ok) {
-          setErrorMessage("Le formulaire n'a pas pu être envoyé. Veuillez réessayer ou nous contacter par téléphone.");
-        } else {
-          reset();
-          setIsSended(true);
-        }
-      } catch (error) {
-        setIsLoading(false);
-        setErrorMessage("Une erreur réseau est survenue. Vérifiez votre connexion.");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        setErrorMessage(
+          result?.error || "Le formulaire n'a pas pu être envoyé. Veuillez réessayer ou nous contacter par téléphone."
+        );
+      } else {
+        reset();
+        setIsSent(true);
       }
+    } catch (error) {
+      setErrorMessage("Une erreur réseau est survenue. Vérifiez votre connexion.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -49,7 +53,7 @@ export default function Form() {
     <section className="max-w-xl mx-auto bg-white p-6 sm:p-10 border border-slate-200/60 shadow-sm my-12">
       
       {/* MESSAGE DE CONFIRMATION */}
-      {isSended && (
+      {isSent && (
         <div className="border border-emerald-100 bg-emerald-50/50 text-slate-800 p-6 text-center space-y-3 animate-fade-in">
           <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full mx-auto">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-6 h-6">
@@ -66,7 +70,7 @@ export default function Form() {
       )}
 
       {/* FORMULAIRE */}
-      {!isSended && (
+      {!isSent && (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">           
           <div className="text-center space-y-2">
             <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight uppercase">
@@ -100,9 +104,15 @@ export default function Form() {
                 type="email"
                 className={`w-full px-4 py-3 rounded-none bg-slate-50 border text-slate-900 text-sm transition-all duration-150 outline-none focus:bg-white focus:ring-2 ${errors.email ? 'border-red-400 focus:ring-red-100' : 'border-slate-200 focus:border-om-light focus:ring-om-light/20'}`}
                 placeholder="Adresse email de contact" 
-                {...register('email', { required: true })} 
+                {...register('email', { 
+                  required: "Une adresse email est requise.",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "L'adresse email n'est pas valide."
+                  }
+                })} 
               />
-              {errors.email && <span className="text-xs font-bold text-red-500 block pl-1">Une adresse email valide est requise.</span>}          
+              {errors.email && <span className="text-xs font-bold text-red-500 block pl-1">{errors.email.message}</span>}          
             </div>
 
             {/* Champ Sujet */}
